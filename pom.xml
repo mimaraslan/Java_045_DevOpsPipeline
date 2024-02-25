@@ -40,7 +40,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
         </plugins>
-       <!-- <finalName>devops-hello</finalName> -->
+       <finalName>devops-application</finalName>
     </build>
 
 </project>

@@ -5,7 +5,7 @@ FROM amazoncorretto:17
 ARG JAR_FILE=target/*.jar
 
 # JAR dosyasını root klasörüne bu isimle kopyala
-COPY ${JAR_FILE} application.jar
+COPY ${JAR_FILE} devops-application.jar
 
 CMD apt-get update-y
 
@@ -13,4 +13,4 @@ CMD apt-get update-y
 EXPOSE 8080
 
 # Uygulamamızın çalışmasını sağlıyoruz.
-ENTRYPOINT ["java",  "-jar", "/application.jar"]
+ENTRYPOINT ["java",  "-jar", "/devops-application.jar"]
