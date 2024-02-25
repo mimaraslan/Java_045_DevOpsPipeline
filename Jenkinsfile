@@ -24,6 +24,7 @@ pipeline {
         stage('Build Maven') {
             steps {
              //    checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/mimaraslan/Java_045_DevOpsPipeline']])
+
                   checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: ${GIT_URL}]])
 
                 //sh 'mvn clean install'
@@ -36,10 +37,11 @@ pipeline {
         stage('Docker Image') {
             steps {
                 // sh 'docker build -t mimaraslan/devops-application .'
-                // bat 'docker build -t mimaraslan/devops-application .'
+                 bat 'docker build -t mimaraslan/devops-application .'
 
+                // TODO - JENKINS ENV
               //  sh "docker build -t ${IMAGE_NAME} ."
-                bat "docker build -t ${IMAGE_NAME} ."
+              //  bat "docker build -t ${IMAGE_NAME} ."
             }
         }
 
