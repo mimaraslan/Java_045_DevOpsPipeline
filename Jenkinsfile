@@ -23,9 +23,10 @@ pipeline {
 
         stage('Build Maven') {
             steps {
-             //    checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/mimaraslan/Java_045_DevOpsPipeline']])
+                 checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/mimaraslan/Java_045_DevOpsPipeline']])
 
-                  checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: ${GIT_URL}]])
+                // TODO FIXME
+               //   checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: ${GIT_URL}]])
 
                 //sh 'mvn clean install'
                  bat 'mvn clean install'
