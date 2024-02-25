@@ -49,21 +49,15 @@ pipeline {
         }
 
          stage('Cleanup Docker Image') {
-                    steps {
-                      script{
-                          withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhub')]) {
-
-                             // Mevcut Docker container'ını durdurun ve silin
-                             // Container mevcut değilse hata vermemesi için '|| true' kullanılır
-                            //  sh "docker rmi mimaraslan/devops-application:latest || true"
-                           //   bat "docker rmi mimaraslan/devops-application:latest || true"
-                              bat 'docker rmi mimaraslan/devops-application:latest'
-
-                        }
-                      }
-                    }
-                }
-
+                     steps {
+                       script{
+                           withCredentials([string(credentialsId: 'dockerhub', variable: 'dockerhub')]) {
+                             //  sh "docker rmi mimaraslan/devops-application:latest"
+                               bat 'docker rmi mimaraslan/devops-application:latest'
+                         }
+                       }
+                     }
+                 }
 
 
         stage('Deploy to Kubernetes') {
@@ -73,6 +67,8 @@ pipeline {
               }
             }
         }
+
+
 
     }
 }
