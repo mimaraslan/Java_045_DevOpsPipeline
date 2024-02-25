@@ -6,6 +6,14 @@ pipeline {
         jdk 'Java17'
     }
 
+  stages {
+        stage('My Test') {
+            steps {
+                //sh 'mvn test '
+                 bat 'mvn test'
+            }
+        }
+
     stages {
         stage('Build Maven') {
             steps {
@@ -14,6 +22,8 @@ pipeline {
                  bat 'mvn clean install'
             }
         }
+
+
 
         stage('Docker Image') {
             steps {
