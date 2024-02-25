@@ -7,14 +7,14 @@ pipeline {
     }
 
   stages {
+
         stage('My Test') {
             steps {
                 //sh 'mvn test '
-                 bat 'mvn test'
+                bat 'mvn test'
             }
-        }
+         }
 
-    stages {
         stage('Build Maven') {
             steps {
                  checkout scmGit(branches: [[name: '*/master']], extensions: [], userRemoteConfigs: [[url: 'https://github.com/mimaraslan/Java_045_DevOpsPipeline']])
