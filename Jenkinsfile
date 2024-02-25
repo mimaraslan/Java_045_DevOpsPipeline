@@ -57,8 +57,11 @@ pipeline {
                              // Container mevcut değilse hata vermemesi için '|| true' kullanılır
                             //  sh "docker stop mimaraslan/devops-application:latest || true"
                             //  sh "docker rmi mimaraslan/devops-application:latest || true"
-                              bat "docker stop mimaraslan/devops-application:latest || true"
-                              bat "docker rmi mimaraslan/devops-application:latest || true"
+                           //   bat "docker stop mimaraslan/devops-application:latest || true"
+                           //   bat "docker rmi mimaraslan/devops-application:latest || true"
+
+                              bat 'docker stop mimaraslan/devops-application:latest'
+                              bat 'docker rmi mimaraslan/devops-application:latest'
 
                         }
                       }
